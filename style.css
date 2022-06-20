@@ -1,0 +1,93 @@
+/***** Attempt at using flex boxes - failed *****/
+/* #board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.cell {
+    flex: auto;
+    width: 100px;
+    align-self: auto;
+} */
+header {
+    text-align: center;
+}
+
+body {
+    align-items: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    cursor: pointer;
+}
+
+.cell {
+    border: 3px solid black;
+    font-size: 60px;
+    display:flex;
+    justify-content: center; 
+    align-items: center;   
+
+}
+
+.top-row {
+    border-top: none;
+    border-bottom: none;
+}
+
+.bottom-row {
+    border-top: none;
+    border-bottom: none;
+}
+
+.first-column {
+    border-left: none;
+    border-right: none;
+}
+
+.third-column {
+    border-left: none;
+    border-right: none;
+}
+
+#endgame-area {
+    text-align: center;
+    border: 3px solid grey;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    /* margin-top: 20px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */    
+}
+
+#endgame-text {
+    margin-top: 0%;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/* .x-hover:hover::after see 22 min on video
+    content: "X" */
+
+/* .o-hover:hover::after
+    content: "O" */
