@@ -12,7 +12,11 @@
         <h1>Tic Tac Toe</h1>
     </header>
     <main>
-    <aside>Player 1 Score here</aside>
+    <aside class=" player-scores">
+        <h2>Autobots</h2>
+        <img class="logos" src="./images/autobot-logo-0.png" alt="Autobot logo">
+        <p id="player1-score">0</p>
+    </aside>
     <div id="board">
         <div class="cell top-row first-column" data-index="0" id="cell1"></div>
         <div class="cell top-row second-column" data-index="1" id="cell2"></div>
@@ -24,11 +28,15 @@
         <div class="cell bottom-row second-column" data-index="7" id="cell8"></div>
         <div class="cell bottom-row third-column" data-index="8" id="cell9"></div>
     </div>
-    <aside>Player 2 score here</aside>
+    <aside class="player-scores">
+        <h2>Decepticons</h2>
+        <img class="logos" src="./images/decepticon-logo-0.png" alt="Decepticon logo">
+        <p id="player2-score">0</p>
+    </aside>
     </main>
     <br>
-    <div id="endgame-area" class="visible">
-      <h2 id="endgame-text">The winner is X</h2>
+    <div id="endgame-area" class="hidden">
+      <h2 id="endgame-text"></h2>
       <button id="restart">Restart Game</button>
     </div>
     </main>

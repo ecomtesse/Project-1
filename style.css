@@ -51,6 +51,8 @@ aside {
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
     cursor: pointer;
+    align-content: center;
+
 }
 
 .cell {
@@ -80,6 +82,25 @@ aside {
 .third-column {
     border-left: none;
     border-right: none;
+}
+
+.logos {
+    width: 130px;
+    height: 130px;
+}
+
+.player-scores {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: transformersFont, Arial, Helvetica, sans-serif;
+    font-size:x-large;
+    letter-spacing: 2px; 
+}
+
+.player-scores p {
+    font-size: 60px;
 }
 
 #endgame-area {

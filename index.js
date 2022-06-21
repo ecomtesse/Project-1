@@ -2,48 +2,46 @@
 const cells = document.querySelectorAll(".cell")
 const endGameArea = document.querySelector("#endgame-area")
 const endGameText = document.querySelector("#endgame-text")
-const restartGame = document.querySelector("#restart")
+const restartButton = document.querySelector("#restart")
 // const autobotImg = new Image()
 // autobotImg = "./images/autobot-logo-0"
 const player1 = "X"
 const player2 = "O"
 let currentPlayer = player1
 let numOfMoves = 0
-// const row1 = document.querySelector("#cell1", "#cell2", "#cell3")
+let stopGame = false
+const player1Total = document.querySelector("#player1-score")
+const player2Total = document.querySelector("#player2-score")
+let player1Score = 0
+let player2Score = 0
 
 //=====================
-// user clicks on cell X or O. add event listener on each cell (loop)
+// Gameplay functions
 //=====================
 
 const playCell = (event) => {
-    if (event.target.innerText !== "") {
+    if (stopGame === true) {
         return
-    // } else if (endGameArea.classList.contains('visibile')) {
-    //     return    ***** For later -  to stop cells being played when the game is over *****
-    } else if (currentPlayer === player1) {
-        event.target.innerText = player1
-        currentPlayer = player2
-        numOfMoves++
-    } else if (currentPlayer === player2) {
-        event.target.innerText = player2
-        currentPlayer = player1
-        numOfMoves++
+    } else {   
+         if (event.target.innerText !== "") {
+        return   
+        } else if (currentPlayer === player1) {
+            event.target.innerText = player1
+            currentPlayer = player2
+            numOfMoves++
+        } else if (currentPlayer === player2) {
+            event.target.innerText = player2
+            currentPlayer = player1
+            numOfMoves++
     }   
     //insert audio here if i do it
     checkWinner() 
-}
+    }
+}    
 
 for (let element of cells) {
     element.addEventListener('click', playCell);
 }
-
-
-
-
-
-// const boardState = array(cells.length)
-// boardState.fill(null)
-
 
 //=====================
 // Function to Check for a Winner
@@ -59,24 +57,49 @@ const winConditions = [
 
 const checkWinner = () => {
     for (let winCondition of winConditions) {
-        let square0 = winCondition[0] // 0
-        let square1 = winCondition[1]// 1
-        let square2 = winCondition[2]// 2
+        let square0 = winCondition[0]
+        let square1 = winCondition[1]
+        let square2 = winCondition[2]
         const cell0 = cells[square0].innerText
         const cell1 = cells[square1].innerText
         const cell2 = cells[square2].innerText
-        console.log(cell0)
-        console.log(cell1)
-        console.log(cell2)
         if (cell0 === player1 && cell1 === player1 && cell2 === player1){
-            return "Player 1 wins!"
+            return gameOverScreen("The Autobots win!")      
         } else if (cell0 === player2 && cell1 === player2 && cell2 === player2){
-            return "Player 2 wins!"
+            return gameOverScreen("The Decepticons win!")
         }
     }
     if (numOfMoves === 9) {
-        return "Its a tie"
+        return gameOverScreen("It's a tie. The battle continues...")
     } 
-
 }
 
+//================
+//Game Over & Restart Sequence
+//================
+const gameOverScreen = (outcome) => {
+    endGameText.innerText = outcome
+    endGameArea.className = "visible"
+    stopGame = true
+    if (outcome === "The Autobots win!") {
+        player1Score++
+        player1Total.innerText = player1Score
+        console.log("add one auto");
+    } else if (outcome === "The Decepticons win!") {
+        player2Score++
+        player2Total.innerText = player2Score
+        console.log("add one decep");
+    }    
+}
+
+const restartGame = () => {
+    endGameArea.className = "hidden"
+    endGameText.innerText = null
+    currentPlayer = player1
+    stopGame = false
+    numOfMoves = 0
+    for (let element of cells) {
+        element.innerText = null
+    }
+}
+restartButton.addEventListener('click', restartGame)
