@@ -1,10 +1,10 @@
+//=================
 //Elements
+//=================
 const cells = document.querySelectorAll(".cell")
 const endGameArea = document.querySelector("#endgame-area")
 const endGameText = document.querySelector("#endgame-text")
 const restartButton = document.querySelector("#restart")
-// const autobotImg = new Image()
-// autobotImg = "./images/autobot-logo-0"
 const player1 = "X"
 const player2 = "O"
 let currentPlayer = player1
@@ -14,6 +14,24 @@ const player1Total = document.querySelector("#player1-score")
 const player2Total = document.querySelector("#player2-score")
 let player1Score = 0
 let player2Score = 0
+
+// *** Audio *** //
+const player1audio = new Audio('./audio/player1.mp3')
+const player2audio = new Audio('./audio/player2.mp3')
+const winAudio = new Audio("./audio/wingame.mp3")
+const playWinAudio = () => {
+    setTimeout(winAudio.play(), 1000) //Doesn't like it...
+}
+const restartAudio = 
+
+//====================
+//Player Icons
+//====================
+// const autobotImg = document.createElement("img")
+// img.src = "./images/autobot-logo-0"
+// cells.appendChild(autobotImg)
+
+
 
 //=====================
 // Gameplay functions
@@ -29,10 +47,12 @@ const playCell = (event) => {
             event.target.innerText = player1
             currentPlayer = player2
             numOfMoves++
+            player1audio.play()
         } else if (currentPlayer === player2) {
             event.target.innerText = player2
             currentPlayer = player1
             numOfMoves++
+            player2audio.play()
     }   
     //insert audio here if i do it
     checkWinner() 
@@ -84,11 +104,11 @@ const gameOverScreen = (outcome) => {
     if (outcome === "The Autobots win!") {
         player1Score++
         player1Total.innerText = player1Score
-        console.log("add one auto");
+        // playWinAudio()
     } else if (outcome === "The Decepticons win!") {
         player2Score++
         player2Total.innerText = player2Score
-        console.log("add one decep");
+        // playWinAudio()
     }    
 }
 
