@@ -1,3 +1,16 @@
+//====================
+//Player Icons
+//====================
+const player1Img = new Image (80, 80)
+player1Img.src = "./images/autobot-logo-1.png"
+player1Img.alt = "Player 1 icon"
+// cells[0].appendChild(player1Img)
+
+const player2Img = new Image (90, 90)
+player2Img.src = "./images/decepticon-logo-1.png"
+player2Img.alt = "Player 2 icon"
+// cells[1].appendChild(player2Img)
+
 //=================
 //Elements
 //=================
@@ -5,33 +18,46 @@ const cells = document.querySelectorAll(".cell")
 const endGameArea = document.querySelector("#endgame-area")
 const endGameText = document.querySelector("#endgame-text")
 const restartButton = document.querySelector("#restart")
+// const fireworksOn = document.querySelector("#fireworks")
+const player1Total = document.querySelector("#player1-score")
+const player2Total = document.querySelector("#player2-score")
 const player1 = "X"
 const player2 = "O"
 let currentPlayer = player1
 let numOfMoves = 0
 let stopGame = false
-const player1Total = document.querySelector("#player1-score")
-const player2Total = document.querySelector("#player2-score")
 let player1Score = 0
 let player2Score = 0
 
-// *** Audio *** //
+
+//====================
+//Audio
+//====================
 const player1audio = new Audio('./audio/player1.mp3')
 const player2audio = new Audio('./audio/player2.mp3')
 const winAudio = new Audio("./audio/wingame.mp3")
+const fnWinAudio = () => {
+    winAudio.play()
+} // Had to create a function that plays the audio as setTimout did not like having a method (winAudio.play() within it)
 const playWinAudio = () => {
-    setTimeout(winAudio.play(), 1000) //Doesn't like it...
+    setTimeout(fnWinAudio, 1300)
 }
-const restartAudio = 
 
-//====================
-//Player Icons
-//====================
-// const autobotImg = document.createElement("img")
-// img.src = "./images/autobot-logo-0"
-// cells.appendChild(autobotImg)
+const tieAudio = new Audio('./audio/tie.mp3')
+const fnTieAudio = () => { 
+    tieAudio.play()
+}
+const playTieAudio = () => {
+    setTimeout(fnTieAudio, 1200)
+}
 
-
+const restartAudioMeg = new Audio('./audio/restart1.mp3')
+const restartAudioOpt = new Audio('./audio/restart2.mp3')
+const restartOptions = [restartAudioMeg, restartAudioOpt]
+const playRestartAudio = () => {
+    let randomNum = Math.floor(Math.random() * restartOptions.length)
+    restartOptions[randomNum].play()
+}
 
 //=====================
 // Gameplay functions
@@ -44,11 +70,13 @@ const playCell = (event) => {
          if (event.target.innerText !== "") {
         return   
         } else if (currentPlayer === player1) {
-            event.target.innerText = player1
+            // event.target.appendChild(player1Img)
+            event.target.innerHTML = player1
             currentPlayer = player2
             numOfMoves++
             player1audio.play()
         } else if (currentPlayer === player2) {
+            // event.target.appendChild(player2Img)
             event.target.innerText = player2
             currentPlayer = player1
             numOfMoves++
@@ -109,10 +137,13 @@ const gameOverScreen = (outcome) => {
         player2Score++
         player2Total.innerText = player2Score
         // playWinAudio()
-    }    
+    } else if (outcome === "It's a tie. The battle continues...") {
+        // playTieAudio()
+    }   
 }
 
 const restartGame = () => {
+    playRestartAudio()
     endGameArea.className = "hidden"
     endGameText.innerText = null
     currentPlayer = player1
@@ -120,6 +151,6 @@ const restartGame = () => {
     numOfMoves = 0
     for (let element of cells) {
         element.innerText = null
-    }
+    }    
 }
 restartButton.addEventListener('click', restartGame)
