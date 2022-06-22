@@ -70,13 +70,13 @@ const playCell = (event) => {
          if (event.target.innerText !== "") {
         return   
         } else if (currentPlayer === player1) {
-            // event.target.appendChild(player1Img)
-            event.target.innerHTML = player1
+            event.target.classList.add('autobot')
+            event.target.innerText = player1
             currentPlayer = player2
             numOfMoves++
             player1audio.play()
         } else if (currentPlayer === player2) {
-            // event.target.appendChild(player2Img)
+            event.target.classList.add('decepticon')
             event.target.innerText = player2
             currentPlayer = player1
             numOfMoves++
@@ -129,6 +129,7 @@ const gameOverScreen = (outcome) => {
     endGameText.innerText = outcome
     endGameArea.className = "visible"
     stopGame = true
+    startFireworks()
     if (outcome === "The Autobots win!") {
         player1Score++
         player1Total.innerText = player1Score
@@ -143,7 +144,8 @@ const gameOverScreen = (outcome) => {
 }
 
 const restartGame = () => {
-    playRestartAudio()
+    // playRestartAudio()
+    endFireworks()
     endGameArea.className = "hidden"
     endGameText.innerText = null
     currentPlayer = player1
@@ -151,6 +153,10 @@ const restartGame = () => {
     numOfMoves = 0
     for (let element of cells) {
         element.innerText = null
-    }    
+    }
+    for (let element of cells) {
+        element.classList.remove('autobot')
+        element.classList.remove('decepticon')
+    }       
 }
 restartButton.addEventListener('click', restartGame)

@@ -28,6 +28,7 @@ body {
     align-items: center;
     background-image: url(./images/nasa-Q1p7bh3SHj8-unsplash.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     background-color: black;
     color: white;
 }
@@ -57,7 +58,8 @@ aside {
     justify-content: center; 
     align-items: center;
     font-family: transformersFont, Arial, Helvetica, sans-serif;
-    cursor: pointer;   
+    cursor: pointer;
+    color: transparent;   
 
 }
 
@@ -141,6 +143,20 @@ aside {
 
 .visible {
     display: block;
+}
+
+.autobot {
+    background-image: url(./images/autobot-logo-1.png);
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.decepticon {
+    background-image: url(./images/decepticon-logo-1.png);
+    background-size: 90px 90px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .firework {

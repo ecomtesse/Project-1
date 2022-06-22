@@ -71,7 +71,7 @@ class Firework {
             this.el.remove()
             fireworks.splice(fireworks.indexOf(this), 1)
             this.explode()
-        }, 900) //update this number to control the length b4 firework removed
+        }, 1000) //update this number to control the length b4 firework removed
     }
     explode() {
         //create particles
@@ -90,17 +90,23 @@ class Firework {
         this.vy += 0.15 //update this to control the drop off
     }
 }    
+let fireworks1IntervalID
+let fireworks2IntervalID
+const startFireworks = () => {
+    // Updates fireworks & particles every 10ms
+    fireworks1IntervalID = setInterval(() => {
+        fireworks.forEach((firework) => firework.update())
+        particles.forEach((particle) => particle.update())
+    }, 10)
 
-// if (stopGame === true) {
-// Updates fireworks & particles every 10ms
-setInterval(() => {
-    fireworks.forEach((firework) => firework.update())
-    particles.forEach((particle) => particle.update())
-}, 10)
+    //creates a new firework ever 150ms and pushes it into the array
+    fireworks2IntervalID = setInterval(() => {
+        const firework = new Firework()
+        fireworks.push(firework)
+    }, 150)
+}
 
-//creates a new firework ever 200ms and pushes it into the array
-setInterval (() => { 
-    const firework = new Firework()
-    fireworks.push(firework)
-}, 150)
-// }
+const endFireworks = () => {
+    clearInterval(fireworks1IntervalID)
+    clearInterval(fireworks2IntervalID)
+}
