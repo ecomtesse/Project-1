@@ -125,12 +125,12 @@ const gameOverScreen = (outcome) => {
     if (outcome === "The Autobots win!") {
         player1Score++
         player1Total.innerText = player1Score
-        startFireworks()
+        setTimeout(startFireworks, 1100)
         playWinAudio()
     } else if (outcome === "The Decepticons win!") {
         player2Score++
         player2Total.innerText = player2Score
-        startFireworks()
+        setTimeout(startFireworks, 1100)
         playWinAudio()
     } else if (outcome === "It's a tie. The battle continues...") {
         playTieAudio()
@@ -142,7 +142,7 @@ const restartGame = () => {
     endFireworks()
     endGameArea.className = "hidden"
     endGameText.innerText = null
-    currentPlayer = player1
+    // currentPlayer = player1
     stopGame = false
     numOfMoves = 0
     for (let element of cells) {

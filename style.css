@@ -106,15 +106,19 @@ aside {
 #endgame-area {
     text-align: center;
     border: 5px solid #c6c8cb;
-    padding: 20px;
-    width: 60%;
-    height: 144px;
+    padding: 10px;
+    width: 70%;
+    height: 150px;
     margin: auto;
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 #endgame-text {
     margin-top: 0%;
+    margin-bottom: 0%;
     font-family: transformersFont, Arial, Helvetica, sans-serif;
     letter-spacing: 2.5px;
     font-size: xx-large;
@@ -129,7 +133,9 @@ aside {
     background-color: #F4F6F7;
     border: 4px outset #D5D8DC ;
     border-radius: 5px;
-    cursor: pointer;   
+    cursor: pointer;
+    width: 200px;
+    align-self: center;   
 }
 
 .hidden {
