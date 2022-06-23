@@ -18,7 +18,8 @@ class Particle {
         this.x = 0
         this.y = 0
         
-        this.speed = Math.random() * 2 + 3 //update the speed of the particle here
+        //update the speed of the particle here
+        this.speed = Math.random() * 2 + 3 
         this.angle = Math.random() * Math.PI * 2
         this.vx = Math.cos(this.angle) * this.speed
         this.vy = -Math.sin(this.angle) * this.speed
@@ -31,10 +32,11 @@ class Particle {
         document.body.appendChild(this.el)
                 
         // Function to remove particle
+        //update time delay number to control the length before particle removed
         setTimeout(() => {
             this.el.remove()
             particles.splice(particles.indexOf(this), 1)
-        }, 300) //update this number to control the length b4 particle removed
+        }, 300) 
     }
 
     setPosition(x, y) {
@@ -44,9 +46,10 @@ class Particle {
         this.el.style.top = this.y + 'px'
     }
 
+    //update the this.vy number to control the drop off/gravity effect
     update() {
         this.setPosition(this.vx + this.x, this.vy + this.y)
-        this.vy += 0.1 //update this to control the drop off
+        this.vy += 0.1 
     }
 }
 
@@ -55,7 +58,8 @@ class Firework {
         this.x = window.innerWidth / 2
         this.y = window.innerHeight - 10
         
-        this.speed = 12 //update the speed of the firework here
+        //update the speed of the firework here
+        this.speed = 11 
         this.angle = (Math.random() * Math.PI / 2) + Math.PI / 4
         this.vx = Math.cos(this.angle) * this.speed
         this.vy = -Math.sin(this.angle) * this.speed
@@ -67,15 +71,18 @@ class Firework {
         document.body.appendChild(this.el)
         
         // Function to remove firework
+        // Update  delay number to control the length before firework removed
         setTimeout(() => {
             this.el.remove()
             fireworks.splice(fireworks.indexOf(this), 1)
             this.explode()
-        }, 1200) //update this number to control the length b4 firework removed
+        }, 1200) 
     }
+
+    // Function to create particles
+    // Number of particles is the condition in the loop
     explode() {
-        //create particles
-        for (let i = 0; i < 50; i++) { //number of particles is the condition in the loop
+        for (let i = 0; i < 50; i++) { 
             const particle = new Particle()
             particle.setPosition(this.x, this.y)
             particles.push(particle)
@@ -89,9 +96,11 @@ class Firework {
         this.el.style.top = this.y + 'px'
         this.vy += 0.15 //update this to control the drop off
     }
-}    
+}
+
 let fireworks1IntervalID
 let fireworks2IntervalID
+
 const startFireworks = () => {
     // Updates fireworks & particles every 10ms
     fireworks1IntervalID = setInterval(() => {

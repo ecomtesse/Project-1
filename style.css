@@ -155,10 +155,6 @@ aside {
     }  
 }
 
-span{
-    width: 100%;
-}
-
 .autobot {
     background-image: url(./images/autobot-logo-1.png);
     background-size: 80px 80px;

@@ -1,6 +1,6 @@
 # Transforming Robot Themed Tic Tac Toe
 
->-
+---
 
 Welcome to my transforming robot themed tic tac toe game!
 
@@ -21,13 +21,13 @@ The application uses:
 - CSS
 - Javascript
 
-The fireworks feature was developed based on the YouTube tutorial [here](https://www.youtube.com/watch?v=yyV84tYmiQ8). It is contained with the <kdb>fireworks.js</kbd>file. The fireworks was seperated from the rest of the javascript to improve readability of each file and to seperate my code from what is primarily someone else's code.
+The fireworks feature was developed based on the YouTube tutorial [here](https://www.youtube.com/watch?v=yyV84tYmiQ8). It is contained with the <kdb>fireworks.js</kbd> file. The fireworks was seperated from the rest of the javascript to improve readability of each file and to seperate my code from what is primarily someone else's code.
 
 ## About the Game
 
 It's tic tac toe... or noughts and crosess... or Xs and Os, depending on where you're from. If you've somehow managed to get through life without ever playing it until now, you can find more information on the game and its rules [here](https://en.wikipedia.org/wiki/Tic-tac-toe).
 
-There is a restart game button after the initial game has ended. Please note that whoever had the final turn on the last game, the other player will have the first turn on the next game.
+There is a restart game button after the game has ended. Please note that whoever had the final turn on the last game, the other player will have the first turn on the next game.
 
 The game includes audio, so headphones/speakers on for the best experience.
 

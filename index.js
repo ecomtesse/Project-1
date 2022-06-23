@@ -142,7 +142,7 @@ const restartGame = () => {
     endFireworks()
     endGameArea.className = "hidden"
     endGameText.innerText = null
-    // currentPlayer = player1
+    // currentPlayer = player1 - can uncomment this if you always want player 1 to start
     stopGame = false
     numOfMoves = 0
     for (let element of cells) {
