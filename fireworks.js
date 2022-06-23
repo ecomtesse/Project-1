@@ -55,7 +55,7 @@ class Firework {
         this.x = window.innerWidth / 2
         this.y = window.innerHeight - 10
         
-        this.speed = 11 //update the speed of the firework here
+        this.speed = 12 //update the speed of the firework here
         this.angle = (Math.random() * Math.PI / 2) + Math.PI / 4
         this.vx = Math.cos(this.angle) * this.speed
         this.vy = -Math.sin(this.angle) * this.speed
@@ -71,7 +71,7 @@ class Firework {
             this.el.remove()
             fireworks.splice(fireworks.indexOf(this), 1)
             this.explode()
-        }, 1000) //update this number to control the length b4 firework removed
+        }, 1200) //update this number to control the length b4 firework removed
     }
     explode() {
         //create particles

@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+/* Below adds the custom transformers font to the css*/
 @font-face {
     font-family: transformersFont;
     src: url(./font/sftransrobotics/SF\ TransRobotics.TTF);
@@ -9,7 +10,6 @@
 
 header {
     text-align: center;
-    margin-bottom: 50px;
     font-family: transformersFont, Arial, Helvetica, sans-serif;
     font-size: 20px;
     letter-spacing: 4px;
@@ -25,9 +25,9 @@ header h1 {
 }
 
 body {
-    align-items: center;
-    background-image: url(./images/nasa-Q1p7bh3SHj8-unsplash.jpg);
-    background-size: cover;
+    background-image: url(./images/background1.jpg);
+    background-size:cover;
+    background-position: center; 
     background-repeat: no-repeat;
     background-color: black;
     color: white;
@@ -49,6 +49,7 @@ aside {
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
     align-content: center;
+    align-self: center;       
 }
 
 .cell {
@@ -59,8 +60,7 @@ aside {
     align-items: center;
     font-family: transformersFont, Arial, Helvetica, sans-serif;
     cursor: pointer;
-    color: transparent;   
-
+    color: transparent;  
 }
 
 .top-row {
@@ -95,7 +95,8 @@ aside {
     align-items: center;
     font-family: transformersFont, Arial, Helvetica, sans-serif;
     font-size:x-large;
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
+    width: 212px; 
 }
 
 .player-scores p {
@@ -107,13 +108,9 @@ aside {
     border: 5px solid #c6c8cb;
     padding: 20px;
     width: 60%;
+    height: 144px;
     margin: auto;
-    margin-top: 20px;
     border-radius: 3px;
-    /* margin-top: 20px; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */    
 }
 
 #endgame-text {
@@ -132,17 +129,28 @@ aside {
     background-color: #F4F6F7;
     border: 4px outset #D5D8DC ;
     border-radius: 5px;
-    cursor: pointer;
-
-    
+    cursor: pointer;   
 }
 
 .hidden {
-    display: none;
+    visibility: hidden;
 }
 
 .visible {
-    display: block;
+    visibility: visible;
+}
+
+@keyframes transformer {
+    from{
+        transform:scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }  
+}
+
+span{
+    width: 100%;
 }
 
 .autobot {
@@ -150,6 +158,9 @@ aside {
     background-size: 80px 80px;
     background-repeat: no-repeat;
     background-position: center;
+    animation: transformer 1201ms linear;
+    height: 100px;
+    width: 100px;
 }
 
 .decepticon {
@@ -157,8 +168,12 @@ aside {
     background-size: 90px 90px;
     background-repeat: no-repeat;
     background-position: center;
+    animation: transformer 1201ms linear;
+    height: 100px;
+    width: 100px;
 }
 
+/* // CSS for the fireworks.js file */
 .firework {
     position: fixed;
     background-image: url('./images/star.png');
@@ -173,10 +188,3 @@ aside {
     width: 2px;
     height: 2px;
 }
-
-
-/* .x-hover:hover::after see 22 min on video
-    content: "X" */
-
-/* .o-hover:hover::after
-    content: "O" */
