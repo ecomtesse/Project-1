@@ -2,7 +2,7 @@
 
 Welcome to my transforming robot themed tic tac toe game!
 
-If you are an employee of or in any way affiliated with Hasbro, please move along, nothing to see here.
+If you are an employee of, or in any way affiliated with Hasbro, please move along, nothing to see here.
 
 Otherwise, [click here](https://ecomtesse.github.io/Project-1/) to play.
 
@@ -12,7 +12,7 @@ Otherwise, [click here](https://ecomtesse.github.io/Project-1/) to play.
 
 This game was developed as an initial project in completing the General Assembly Software Engineering Immersive course. I was allocated four days to develop the game based on the [brief](https://git.generalassemb.ly/seir59anz/seir59anz-course-materials/tree/main/unit1/project) provided.
 
-The project provided the first opportunity to apply the theortical skills I learnt in the first two weeks of the course into a practical application.
+The project provided the first opportunity to apply the theortical skills learnt in the first two weeks of the course into a practical application.
 
 ---
 
